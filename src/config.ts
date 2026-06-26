@@ -31,7 +31,7 @@ export interface NamecheckConfig {
   tldGroups?: Record<string, string[]>;
   /** Which groups to include (unioned, deduped). Ignored when `tlds` is set. */
   activeGroups?: string[];
-  /** Max parallel checks (default 8). */
+  /** Max parallel checks (default 64). */
   concurrency?: number;
   /** Ms pause before each worker starts its next check (default 0). */
   requestDelayMs?: number;
@@ -108,7 +108,12 @@ function readConfigFile(path: string): NamecheckConfig {
 function configCandidates(explicit?: string): string[] {
   const paths: string[] = [];
   if (explicit) {
-    paths.push(resolve(explicit));
+    const resolved = resolve(explicit);
+    if (!existsSync(resolved)) {
+      throw new Error(`Config file not found: ${resolved}`);
+    }
+    paths.push(resolved);
+    return paths;
   }
   paths.push(resolve(process.cwd(), "namecheck.config.json"));
   const home = homedir();
@@ -232,6 +237,9 @@ export function exampleConfig(): NamecheckConfig & { tldGroups: Record<string, s
 }
 
 export function writeExampleConfig(path: string): void {
+  if (existsSync(path)) {
+    throw new Error(`Config file already exists: ${path}\nDelete it first or use --config to point at a different path.`);
+  }
   const body = `${JSON.stringify(exampleConfig(), null, 2)}\n`;
   writeFileSync(path, body, "utf8");
 }

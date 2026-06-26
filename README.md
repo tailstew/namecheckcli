@@ -1,6 +1,6 @@
 # namecheckcli
 
-Check whether a business name, domain, or social handle is available — **JSON in, JSON out**, built for humans and AI agents researching name ideas.
+A [tailstew](https://tailstew.com) project — check whether a business name, domain, or social handle is available. **JSON in, JSON out**, built for the terminal, scripts, and agents researching name ideas.
 
 Unlike many username checkers, this CLI **includes Instagram and Threads** by calling Meta's `web_profile_info` API (the same signal browsers use), not naive page scrapes that break on Instagram's SPA.
 
@@ -74,7 +74,7 @@ mybrandname — 12/30 available (40% score)
   UNCLEAR  youtube       https://www.youtube.com/@mybrandname
 ```
 
-Default output is JSON (for scripts/AI). Use `--pretty` for readable JSON.
+Default output is JSON (for scripts and automation). Use `--pretty` for readable JSON.
 
 ### Example output (JSON)
 
@@ -216,7 +216,7 @@ Bluesky is *more* clear-cut than scraping X or Instagram when you use the signup
 
 Always verify critical names manually before registering domains or launching a brand.
 
-## For AI agents
+## For agents
 
 - Output is always JSON on stdout (errors on stderr as JSON).
 - Exit code `0` = success, `1` = bad input, `2` = partial errors in results.

@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { delay } from "./throttle.js";
 import type { CheckResult } from "./types.js";
 
 function openUrl(url: string): void {
@@ -19,10 +20,6 @@ function openUrl(url: string): void {
   }
 
   spawn("xdg-open", [url], { detached: true, stdio: "ignore" }).unref();
-}
-
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export interface ValidateOptions {

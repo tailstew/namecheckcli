@@ -11,7 +11,7 @@ compatibility: Requires Node.js 20+, network access, and the namecheck CLI on PA
 
 # namecheck
 
-JSON-in, JSON-out CLI for multi-platform name availability. Built for humans and AI agents researching brand or product names.
+JSON-in, JSON-out CLI for multi-platform name availability. A tailstew project — built for the terminal, scripts, and agents researching brand or product names.
 
 ## When to use
 

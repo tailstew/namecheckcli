@@ -113,14 +113,17 @@ export async function runCheck(options: RunCheckOptions): Promise<CheckReport> {
     signal: controller.signal,
   };
 
-  const results = await mapPool(
-    selected,
-    rateLimit.concurrency,
-    rateLimit.requestDelayMs,
-    (checker) => runChecker(checker, ctx),
-  );
-
-  options.signal?.removeEventListener("abort", onAbort);
+  let results: CheckResult[];
+  try {
+    results = await mapPool(
+      selected,
+      rateLimit.concurrency,
+      rateLimit.requestDelayMs,
+      (checker) => runChecker(checker, ctx),
+    );
+  } finally {
+    options.signal?.removeEventListener("abort", onAbort);
+  }
 
   const summary = {
     total: results.length,

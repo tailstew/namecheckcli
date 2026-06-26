@@ -42,7 +42,7 @@ Options:
   --no-cooldown         Skip the 1s gap between back-to-back CLI invocations
   --invocation-delay <ms>  Min gap between invocations (default: 1000, 0=off)
   --concurrency <n>     Max parallel checks within one run (default: 64)
-  --init-config         Write namecheck.config.example.json to the current directory
+  --init-config         Write namecheck.config.json to the current directory
   --list                List checker ids
   --help                Show this help
 

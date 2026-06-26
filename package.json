@@ -1,13 +1,14 @@
 {
   "name": "namecheckcli",
   "version": "1.0.0",
-  "description": "Check business name availability across domains and social platforms. JSON output for humans and AI agents.",
+  "description": "Check business name availability across domains and social platforms. JSON output for the terminal, scripts, and agents.",
   "type": "module",
   "bin": {
     "namecheck": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "dev": "tsx src/cli.ts",
     "start": "node dist/cli.js",
     "check": "tsx src/cli.ts"
