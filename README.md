@@ -193,6 +193,8 @@ Short answer: **Instagram makes it hard on purpose**, and most tools take the ea
 
 **This CLI** uses the `web_profile_info` JSON API (404 = likely available, 200 with user object = taken) — the same family of approach used by Namecheckly and newer checkers.
 
+> **Rate limiting:** After several checks in a session, Meta will start blocking requests and Instagram/Threads results will return `unknown` (low confidence). This is expected. Space out repeated runs or verify those names manually.
+
 ## Bluesky and other X alternatives
 
 | Platform | How we check | Clear-cut? |
