@@ -1,0 +1,14 @@
+{
+  "activeGroups": ["core", "dev", "ai", "startup"],
+  "concurrency": 64,
+  "requestDelayMs": 0,
+  "invocationCooldownMs": 1000,
+  "tldGroups": {
+    "core": ["com", "net", "org"],
+    "dev": ["dev", "io", "app", "sh", "run", "tech", "tools", "codes", "cloud", "so"],
+    "ai": ["ai", "bot"],
+    "startup": ["co", "xyz", "vc", "fund"],
+    "short": ["me", "gg", "fm", "to"],
+    "modern": ["page", "site", "online", "store", "software"]
+  }
+}

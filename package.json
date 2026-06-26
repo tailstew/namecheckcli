@@ -1,0 +1,33 @@
+{
+  "name": "namecheckcli",
+  "version": "1.0.0",
+  "description": "Check business name availability across domains and social platforms. JSON output for humans and AI agents.",
+  "type": "module",
+  "bin": {
+    "namecheck": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "check": "tsx src/cli.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "namecheck",
+    "username",
+    "domain",
+    "instagram",
+    "availability",
+    "cli",
+    "json"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
